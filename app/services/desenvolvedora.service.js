@@ -1,6 +1,6 @@
 import { Op } from 'sequelize';
 import db from '../config/sequelize.config.js';
-const { Desenvolvedora } = db;
+const { Desenvolvedora, Jogo } = db;
 
 export const cadastrarDesenvolvedora = async (dados) => {
 
@@ -67,6 +67,13 @@ export const deletarDesenvolvedora = async (id) => {
         throw new Error('DESENVOLVEDORA_NAO_ENCONTRADA');
     }
 
-    await desenvolvedora.destroy();
+    const jogoAssociado = await Jogo.findOne({
+        where: { desenvolvedora_id: id }
+    });
 
+    if (jogoAssociado) {
+        throw new Error('DESENVOLVEDORA_COM_JOGOS_ASSOCIADOS');
+    }
+
+    await desenvolvedora.destroy();
 };

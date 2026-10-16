@@ -78,7 +78,6 @@ export const listarDesenvolvedoraId = async (req, res) => {
 
 export const deletarDesenvolvedora = async (req, res) => {
     try {
-
         const id = Number(req.params.id);
 
         if (!validarId(id)) {
@@ -92,7 +91,10 @@ export const deletarDesenvolvedora = async (req, res) => {
     } catch (error) {
         if (error.message === 'DESENVOLVEDORA_NAO_ENCONTRADA') {
             return res.status(404).json({ erro: "Desenvolvedora não encontrada." });
-        };
+        }
+        if (error.message === 'DESENVOLVEDORA_COM_JOGOS_ASSOCIADOS') {
+            return res.status(409).json({ erro: "Não é possível excluir esta desenvolvedora pois existem jogos associados a ela." });
+        }
         return res.status(500).json({ erro: "Erro ao deletar desenvolvedora." });
     }
 };
