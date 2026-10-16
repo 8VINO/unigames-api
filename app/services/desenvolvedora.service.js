@@ -44,7 +44,7 @@ export const atualizarDesenvolvedora = async (id, dados) => {
     return desenvolvedora;
 };
 
-export const listarDesenvolvedora = async () => {
+export const listarDesenvolvedoras = async () => {
     return await Desenvolvedora.findAll();
 };
 

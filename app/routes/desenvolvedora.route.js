@@ -7,7 +7,7 @@ router.post("/", desenvolvedoraController.cadastrarDesenvolvedora);
 
 router.put("/:id", desenvolvedoraController.atualizarDesenvolvedora);
 
-router.get("/", desenvolvedoraController.listarDesenvolvedora);
+router.get("/", desenvolvedoraController.listarDesenvolvedoras);
 
 router.get("/:id", desenvolvedoraController.listarDesenvolvedoraId);
 

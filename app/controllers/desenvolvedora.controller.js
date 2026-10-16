@@ -45,10 +45,10 @@ export const atualizarDesenvolvedora = async (req, res) => {
     }
 };
 
-export const listarDesenvolvedora = async (req, res) => {
+export const listarDesenvolvedoras = async (req, res) => {
     try {
 
-        const desenvolvedoras = await desenvolvedoraService.listarDesenvolvedora();
+        const desenvolvedoras = await desenvolvedoraService.listarDesenvolvedoras();
         return res.status(200).json(desenvolvedoras);
 
     } catch (error) {
