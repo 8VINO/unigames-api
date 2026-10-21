@@ -38,7 +38,7 @@ export const atualizarGenero = async (req, res) => {
             return res.status(404).json({ erro: "Gênero não encontrado." });
         };
         if (error.message === 'CONFLITO_DADOS') {
-            return res.status(409).json({ erro: "Dados já cadastrados." });
+            return res.status(409).json({ erro: "Gênero já cadastrado." });
         };
 
         return res.status(500).json({ erro: "Erro interno ao atualizar gênero." });

@@ -15,7 +15,7 @@ export const cadastrarJogo = async (req, res) => {
             return res.status(404).json({ erro: "Um ou mais gêneros selecionados não foram encontrados." });
         };
         if (error.message === 'CONFLITO_DADOS') {
-            return res.status(409).json({ erro: "Dados já cadastrados." });
+            return res.status(409).json({ erro: "Jogo já cadastrado." });
         };
         if (error.message === 'ERRO_UPLOAD_SUPABASE') {
             console.error(error);
