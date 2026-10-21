@@ -11,7 +11,7 @@ export const cadastrarDesenvolvedora = async (req, res) => {
     } catch (error) {
 
         if (error.message === 'CONFLITO_DADOS') {
-            return res.status(409).json({ erro: "Dados já cadastrados." });
+            return res.status(409).json({ erro: "Desenvolvedora já cadastrada." });
         };
 
         return res.status(500).json({ erro: "Erro interno ao cadastrar desenvolvedora." });

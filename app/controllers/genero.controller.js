@@ -11,7 +11,7 @@ export const cadastrarGenero = async (req, res) => {
     } catch (error) {
 
         if (error.message === 'CONFLITO_DADOS') {
-            return res.status(409).json({ erro: "Dados já cadastrados." });
+            return res.status(409).json({ erro: "Gênero já cadastrado." });
         };
 
         return res.status(500).json({ erro: "Erro interno ao cadastrar gênero." });

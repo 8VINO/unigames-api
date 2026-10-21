@@ -49,7 +49,7 @@ export const atualizarJogo = async (req, res) => {
             return res.status(404).json({ erro: "Um ou mais gêneros selecionados não foram encontrados." });
         };
         if (error.message === 'CONFLITO_DADOS') {
-            return res.status(409).json({ erro: "Dados já cadastrados." });
+            return res.status(409).json({ erro: "Jogo já cadastrado." });
         };
         if (error.message === 'ERRO_UPLOAD_SUPABASE') {
             return res.status(500).json({ erro: "Erro ao fazer upload da imagem no storage." });
